@@ -24,27 +24,18 @@ public class Consumer {
 		var connection = factory.newConnection();
 		var channel = connection.createChannel();
 
-		// Aceita apenas uma mensagem sem ack por vez.
-		channel.basicQos(1); 
-		
 		DeliverCallback deliverCallback = new DeliverCallback() {
 			@Override
 			public void handle(String consumerTag, Delivery message) throws IOException {
 				String receivedMessage = new String(message.getBody(), "UTF-8");
-				try {
-					processMessage(receivedMessage);
-				} finally {
-					System.out.println(" [X] Done.");
-					
-					// Registro manual do ack
-					channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
-				}
+				processMessage(receivedMessage);
+				channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
 			}
 		};
 		
-		// Indica ao RabbitMQ que é preciso aguardar pela confirmação (ack) manual da mensagem. 
 		boolean autoAck = false;
 		channel.basicConsume(QUEUE_NAME, autoAck, deliverCallback, consumerTag -> {});
+		
 	}
 	
 	private static void processMessage(String message) {

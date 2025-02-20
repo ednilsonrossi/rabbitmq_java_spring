@@ -37,7 +37,7 @@ public class Consumer {
 					System.out.println(" [X] Done.");
 					
 					// Registro manual do ack
-					channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
+					//channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
 				}
 			}
 		};

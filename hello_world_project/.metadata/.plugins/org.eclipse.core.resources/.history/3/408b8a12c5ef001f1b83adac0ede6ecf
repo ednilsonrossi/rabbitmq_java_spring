@@ -25,7 +25,7 @@ public class Consumer {
 		var channel = connection.createChannel();
 
 		// Aceita apenas uma mensagem sem ack por vez.
-		channel.basicQos(1); 
+		//channel.basicQos(1); 
 		
 		DeliverCallback deliverCallback = new DeliverCallback() {
 			@Override
@@ -37,7 +37,7 @@ public class Consumer {
 					System.out.println(" [X] Done.");
 					
 					// Registro manual do ack
-					channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
+					//channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
 				}
 			}
 		};

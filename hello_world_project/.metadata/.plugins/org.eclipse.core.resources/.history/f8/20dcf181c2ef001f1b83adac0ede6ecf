@@ -45,6 +45,7 @@ public class Consumer {
 		// Indica ao RabbitMQ que é preciso aguardar pela confirmação (ack) manual da mensagem. 
 		boolean autoAck = false;
 		channel.basicConsume(QUEUE_NAME, autoAck, deliverCallback, consumerTag -> {});
+		
 	}
 	
 	private static void processMessage(String message) {
