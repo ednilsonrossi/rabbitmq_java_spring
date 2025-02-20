@@ -28,6 +28,13 @@ build/
 *.sln
 *.sw?
 
+# Eclipse IDE
+.metadata/
+*.classpath
+*.project
+*.settings/
+
+
 # Logs
 logs/
 *.log
