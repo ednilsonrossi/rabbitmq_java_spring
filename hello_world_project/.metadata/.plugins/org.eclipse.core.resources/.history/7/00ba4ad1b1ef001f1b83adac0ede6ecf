@@ -12,7 +12,7 @@ public class Producer {
 	private static final int PORT = 5672;
 	private final static String QUEUE_NAME = "hello";
 	
-	public static void main(String[] args) throws IOException, TimeoutException, InterruptedException{
+	public static void main(String[] args) throws IOException, TimeoutException{
 		var helloMessage = new HelloMessage();
 		
 		var factory = new ConnectionFactory();
@@ -25,13 +25,9 @@ public class Producer {
 				var channel = connection.createChannel()) {
 			
 			channel.queueDeclare(QUEUE_NAME, true, false, false, null);
-			
-			while (true) {
-				String message = helloMessage.getMessage();
-				channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-				System.out.println(" [x] Sent '" + message + "'");
-				Thread.sleep(1000);
-			}
+			String message = helloMessage.getMessage();
+			channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+			System.out.println(" [x] Sent '" + message + "'");
 		}
 	}
 }
