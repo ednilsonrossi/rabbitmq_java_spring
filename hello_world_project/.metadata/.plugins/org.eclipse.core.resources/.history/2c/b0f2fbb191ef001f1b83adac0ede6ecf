@@ -1,5 +1,0 @@
-package br.edu.rabbitmqjava;
-
-public class HelloMessage {
-
-}
