@@ -1,0 +1,54 @@
+# Compilação
+target/
+*.class
+
+# Maven
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle (caso esteja usando)
+.gradle/
+build/
+!gradle-wrapper.jar
+*.lock
+
+# IDEs e editores
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs/
+*.log
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+#*.properties
+#*.yml
+#*.yaml
+
+# Arquivos sensíveis do Spring Boot
+#application.properties
+#application.yml
+#application-dev.properties
+#application-dev.yml
+#application-prod.properties
+#application-prod.yml
+
+# Docker
+docker-compose.override.yml
